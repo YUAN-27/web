@@ -13,7 +13,7 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'YUAN の WEB — 欢迎来到我的个人网站',
   ignoreTitleTemplate: true,
 };
 ---
@@ -25,42 +25,39 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: '查看博客',
+        href: '/blog',
+        icon: 'tabler:book',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: '了解更多', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'YUAN の WEB' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
+      欢迎来到 <span class="hidden xl:inline">YUAN 的</span>
+      <span class="text-accent dark:text-white">个人网站</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
+        <span class="font-semibold">分享技术、记录生活、探索世界</span></span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">YUAN の WEB</span>
+      这是一个基于 Astro 5.0 + Tailwind CSS 构建的现代化个人网站
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
+  <Note title="座右铭：" description="持续学习，不断进步，分享所得" />
 
   <!-- Features Widget *************** -->
 
   <Features
     id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
+    tagline="特色"
+    title="网站特点"
+    subtitle="使用现代化技术栈构建的高性能个人网站，具有出色的用户体验和 SEO 优化。"
     items={[
       {
         title: 'Astro + Tailwind CSS Integration',
