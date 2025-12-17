@@ -1,11 +1,18 @@
 ---
 export interface Props {
   isDark?: boolean;
+  gradient?: boolean;
 }
 
-const { isDark = false } = Astro.props;
+const { isDark = false, gradient = false } = Astro.props;
 ---
 
-<div class:list={['absolute inset-0', { 'bg-dark dark:bg-transparent': isDark }]}>
+<div class:list={[
+  'absolute inset-0', 
+  { 
+    'bg-dark dark:bg-transparent': isDark,
+    'bg-gradient-to-br from-blue-50 to-purple-50': gradient 
+  }
+]}>
   <slot />
 </div>

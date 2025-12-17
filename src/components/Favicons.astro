@@ -1,10 +1,20 @@
 ---
 import favIcon from '~/assets/favicons/favicon.ico';
 import favIconSvg from '~/assets/favicons/favicon.svg';
+import favIcon96 from '~/assets/favicons/favicon-96x96.png';
 import appleTouchIcon from '~/assets/favicons/apple-touch-icon.png';
 ---
 
-<link rel="shortcut icon" href={favIcon} />
+<!-- 标准浏览器图标 -->
+<link rel="icon" href={favIcon} sizes="48x48" />
 <link rel="icon" type="image/svg+xml" href={favIconSvg.src} />
-<link rel="mask-icon" href={favIconSvg.src} color="#8D46E7" />
+<link rel="icon" type="image/png" sizes="96x96" href={favIcon96.src} />
+
+<!-- Apple 设备图标 -->
 <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon.src} />
+
+<!-- Safari 固定标签图标 -->
+<link rel="mask-icon" href={favIconSvg.src} color="#8D46E7" />
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="/site.webmanifest" />

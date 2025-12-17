@@ -10,6 +10,11 @@ interface Link {
   icon?: string;
 }
 
+interface SocialLink extends Link {
+  type?: string;
+  qrcode?: string;
+}
+
 interface Links {
   title?: string;
   links: Array<Link>;
@@ -18,7 +23,7 @@ interface Links {
 export interface Props {
   links: Array<Links>;
   secondaryLinks: Array<Link>;
-  socialLinks: Array<Link>;
+  socialLinks: Array<SocialLink>;
   footNote?: string;
   theme?: string;
 }
@@ -78,8 +83,8 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       {
         socialLinks?.length ? (
           <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
-            {socialLinks.map(({ ariaLabel, href, text, icon }) => (
-              <li>
+            {socialLinks.map(({ ariaLabel, href, text, icon, type, qrcode }) => (
+              <li class="relative group">
                 <a
                   class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
                   aria-label={ariaLabel}
@@ -88,6 +93,15 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
                   {icon && <Icon name={icon} class="w-5 h-5" />}
                   <Fragment set:html={text} />
                 </a>
+                {type === 'wechat' && qrcode && (
+                  <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-2 border border-gray-200 dark:border-gray-700">
+                      <img src={qrcode} alt="微信二维码" class="w-32 h-32 object-contain" />
+                      <p class="text-xs text-center text-gray-600 dark:text-gray-400 mt-1">扫码添加微信</p>
+                    </div>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-gray-800"></div>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
