@@ -25,31 +25,43 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: '查看博客',
+        text: '进入树洞',
         href: '/blog',
         icon: 'tabler:book',
       },
       { text: '了解更多', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'YUAN の WEB' }}
+    image={{ src: '~/assets/images/chiken-background.png', alt: '鸡背景' }}
   >
     <Fragment slot="title">
-      欢迎来到 <span class="hidden xl:inline">YUAN 的</span>
-      <span class="text-accent dark:text-white">个人网站</span>
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">欢迎来到</span>
+      <span class="hidden xl:inline">YUAN 的</span>
+      <span class="light:text-yellow-500 dark:text-white">妙妙屋</span>
+      <style>
+      @keyframes gradientX {
+       0% { background-position: 0% 50%; }
+       50% { background-position: 100% 50%; }
+       100% { background-position: 0% 50%; }
+     }
+     .animate-gradient-x {
+       background-size: 200% 200%; /* 扩大背景尺寸，让流动更明显 */
+       animation: gradientX 3s ease infinite; /* 3秒循环，匀速无停顿 */
+     }
+    </style>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">分享技术、记录生活、探索世界</span></span
+        <span class="text-sm">不</span><span class="font-semibold">分享技术、记录生活、探索世界</span></span
       >
       <span class="block mb-1 sm:hidden font-bold text-blue-600">YUAN の WEB</span>
-      这是一个基于 Astro 5.0 + Tailwind CSS 构建的现代化个人网站
+      这是一个基于<span class="block mb-1 sm:hidden font-bold text-blue-600">友谊</span>魔法构建的现代化个人网站
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note title="座右铭：" description="持续学习，不断进步，分享所得" />
+  <Note title="座右铭：" description="银行业一样一样有有有也会有h'y'hui't'y'r's'c'dn" />
 
   <!-- Features Widget *************** -->
 
@@ -57,50 +69,22 @@ const metadata = {
     id="features"
     tagline="特色"
     title="网站特点"
-    subtitle="使用现代化技术栈构建的高性能个人网站，具有出色的用户体验和 SEO 优化。"
-    items={[
+    subtitle="博主特色"
+        items={[
+  
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: 'Excellent Page Icon',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
+          '我们有大家都喜欢的小火箭',
         icon: 'tabler:rocket',
       },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
+
     ]}
   />
-
+  
   <!-- Content Widget **************** -->
 
-  <Content
+<!--<Content
     isReversed
     tagline="Inside template"
     title="AstroWind's Blueprint: Fun Meets Functionality!"
@@ -134,86 +118,12 @@ const metadata = {
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Content>
+  </Content> -->
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
 
   <!-- Steps Widget ****************** -->
 
-  <Steps
+<!--  <Steps
     title="Get your dream website up and running in no time with AstroWind."
     items={[
       {
@@ -243,11 +153,12 @@ const metadata = {
       src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
       alt: 'Steps image',
     }}
-  />
+  /> -->
+ 
 
   <!-- Features2 Widget ************** -->
 
-  <Features2
+   <!-- <Features2
     title="Most used widgets"
     subtitle="Provides frequently used components for building websites using Tailwind CSS"
     tagline="Components"
@@ -307,21 +218,22 @@ const metadata = {
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
+  </Features2> -->
+  
 
   <!-- HighlightedPosts Widget ******* -->
 
-  <BlogLatestPosts
+<!--   <BlogLatestPosts
     title="Find out more content in our Blog"
     information={`The blog is used to display AstroWind documentation.
                         Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
                         Astro is a very interesting technology. Thanks.
                 `}
   />
+ -->
 
   <!-- FAQs Widget ******************* -->
-
-  <FAQs
+  <!-- <FAQs
     title="Frequently Asked Questions"
     subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
     tagline="FAQs"
@@ -358,16 +270,17 @@ const metadata = {
           "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
       },
     ]}
-  />
+  /> -->
+  
 
   <!-- Stats Widget ****************** -->
 
   <Stats
     stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
+      { title: 'AGE', amount: '19' },
+      { title: 'Girlfriends', amount: '0' },
+      { title: 'Boyfriends', amount: '0' },
+      { title: 'LOVE', amount: '∞' },
     ]}
   />
 
@@ -377,7 +290,7 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
+        text: '一键直达',
         href: 'https://github.com/YUAN-27/web',
         target: '_blank',
         icon: 'tabler:download',
@@ -385,12 +298,11 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      YUAN'S &nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">B站账号</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      谁不点谁就是GAY :P
     </Fragment>
   </CallToAction>
 </Layout>

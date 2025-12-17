@@ -11,24 +11,21 @@ metadata:
   title:
     default: YUAN の WEB
     template: '%s — YUAN の WEB'
-  description: "欢迎来到 YUAN 的个人网站 - 分享技术、生活与思考"
+  description: "欢迎来到 YUAN 的个人网站 - 不分享技术、生活与思考"
   robots:
     index: true
     follow: true
   openGraph:
     site_name: YUAN の WEB
     images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
+      - url: '~/assets/favicon/android-chrome-512x512.png'
+        width: 512
+        height: 512
     type: website
   twitter:
-    handle: '@your_twitter'
-    site: '@your_twitter'
-    cardType: summary_large_image
-
+    card: summary_large_image
 i18n:
-  language: en
+  language: zh-CN
   textDirection: ltr
 
 apps:
@@ -38,9 +35,9 @@ apps:
 
     post:
       isEnabled: true
-      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: '/articles/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
-        index: true
+        index: false
 
     list:
       isEnabled: true
@@ -69,4 +66,4 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'dark  ' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
