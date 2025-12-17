@@ -89,7 +89,7 @@ export const footerData = {
     { ariaLabel: 'bilibili', icon: 'tabler:brand-bilibili', href: 'https://space.bilibili.com/208259?spm_id_from=333.337.0.0' },
     { ariaLabel: 'QQ', icon: 'tabler:brand-qq', href: 'https://user.qzone.qq.com/2817108368' },
     { ariaLabel: 'Youtube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1' },
-    { ariaLabel: 'Wechat', icon: 'tabler:brand-wechat', type:'wechat', qrcode: getAsset('/images/wechat-qrcode.png') , href: '#' },
+    { ariaLabel: 'Wechat', icon: 'tabler:brand-wechat', type:'wechat', qrcode: getAsset('/images/mmqrcode1765974348892.png') , href: '#' },
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/YUAN-27/web' },
   ],
   footNote: `
