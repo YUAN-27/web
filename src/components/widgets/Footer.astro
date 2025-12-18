@@ -13,6 +13,7 @@ interface Link {
 interface SocialLink extends Link {
   type?: string;
   qrcode?: string;
+  qqNumber?: string;
 }
 
 interface Links {
@@ -83,21 +84,32 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       {
         socialLinks?.length ? (
           <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
-            {socialLinks.map(({ ariaLabel, href, text, icon, type, qrcode }) => (
+            {socialLinks.map(({ ariaLabel, href, text, icon, type, qrcode, qqNumber }) => (
               <li class="relative group">
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
-                  <Fragment set:html={text} />
-                </a>
-                {type === 'wechat' && qrcode && (
+                {type === 'qq' && qqNumber ? (
+                  <a
+                    class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center qq-link cursor-pointer"
+                    aria-label={ariaLabel}
+                    data-qq={qqNumber}
+                  >
+                    {icon && <Icon name={icon} class="w-5 h-5" />}
+                    <Fragment set:html={text} />
+                  </a>
+                ) : (
+                  <a
+                    class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                    aria-label={ariaLabel}
+                    href={href}
+                  >
+                    {icon && <Icon name={icon} class="w-5 h-5" />}
+                    <Fragment set:html={text} />
+                  </a>
+                )}
+                {(type === 'wechat' || type === 'qq') && qrcode && (
                   <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50">
                     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-3 border border-gray-200 dark:border-gray-700 w-44">
-                      <img src={qrcode} alt="微信二维码" class="w-full aspect-square object-contain" />
-                      <p class="text-xs text-center text-gray-600 dark:text-gray-400 mt-2">扫码添加微信</p>
+                      <img src={qrcode} alt={type === 'qq' ? 'QQ二维码' : '微信二维码'} class="w-full aspect-square object-contain" />
+                      <p class="text-xs text-center text-gray-600 dark:text-gray-400 mt-2">{type === 'qq' ? '扫码添加QQ' : '扫码添加微信'}</p>
                     </div>
                     <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white dark:border-t-gray-800"></div>
                   </div>
@@ -116,3 +128,26 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const qqLinks = document.querySelectorAll('.qq-link');
+    qqLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const qqNumber = link.getAttribute('data-qq');
+        if (!qqNumber) return;
+        
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+          // 手机端使用 QQ 协议
+          window.location.href = `mqqwpa://im/chat?chat_type=wpa&uin=${qqNumber}`;
+        } else {
+          // PC端使用网页版
+          window.open(`https://wpa.qq.com/msgrd?v=3&uin=${qqNumber}&site=web&menu=yes`, '_blank');
+        }
+      });
+    });
+  });
+</script>

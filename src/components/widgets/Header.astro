@@ -4,6 +4,7 @@ import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
+import Search from 'astro-pagefind/components/Search';
 
 import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash, getAsset } from '~/utils/permalinks';
@@ -136,7 +137,23 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       ]}
     >
       <div class="items-center flex justify-between w-full md:w-auto">
-        <div class="flex">
+        <div class="flex items-center">
+          <div class="mr-2">
+            <Search 
+              id="search" 
+              className="pagefind-ui" 
+              uiOptions={{ 
+                showImages: false,
+                showSubResults: true,
+                translations: {
+                  placeholder: "搜索...",
+                  zero_results: "没有找到结果",
+                  clear_search: "清除",
+                  load_more: "加载更多",
+                }
+              }} 
+            />
+          </div>
           {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
           {
             showRssFeed && (

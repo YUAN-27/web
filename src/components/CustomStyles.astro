@@ -75,4 +75,28 @@ import '@fontsource-variable/inter';
     /* background-image: url('/images/pattern.svg'); */
     /* background-repeat: repeat; */
   }
+
+  /* Pagefind 搜索框样式 */
+  .pagefind-ui {
+    --pagefind-ui-scale: 0.8;
+    --pagefind-ui-primary: var(--aw-color-primary);
+    --pagefind-ui-text: var(--aw-color-text-default);
+    --pagefind-ui-background: var(--aw-color-bg-page);
+    --pagefind-ui-border: #e5e7eb;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 8px;
+  }
+
+  .dark .pagefind-ui {
+    --pagefind-ui-border: #374151;
+    --pagefind-ui-background: rgb(17 24 39);
+  }
+
+  .pagefind-ui .pagefind-ui__search-input {
+    font-weight: 400;
+  }
+
+  .pagefind-ui .pagefind-ui__result-link {
+    color: var(--aw-color-primary);
+  }
 </style>
