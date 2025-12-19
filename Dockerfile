@@ -8,7 +8,9 @@ RUN npm install
 FROM base AS build
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+ENV NODE_ENV=production
+ENV ASTRO_TELEMETRY_DISABLED=1
+RUN npm run build 2>&1 | tee /tmp/build.log || (cat /tmp/build.log && exit 1)
 
 FROM nginx:stable-alpine AS deploy
 COPY --from=build /app/dist /usr/share/nginx/html

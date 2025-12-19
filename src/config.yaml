@@ -1,6 +1,6 @@
 site:
   name: YUAN の WEB
-  site: 'http://47.112.221.73:8000'
+  site: ''
   base: '/'
   trailingSlash: false
 
