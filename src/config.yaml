@@ -18,7 +18,7 @@ metadata:
   openGraph:
     site_name: YUAN の WEB
     images:
-      - url: 'http://39.96.115.139:8000/web-app-manifest-512x512.png'
+      - url: '/web-app-manifest-512x512.png'
         width: 512
         height: 512
     type: website
