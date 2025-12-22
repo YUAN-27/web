@@ -1,6 +1,6 @@
 site:
   name: YUAN の WEB
-  site: 'https://yourdomain.com'
+  site: 'http://39.96.115.139'
   base: '/'
   trailingSlash: false
 
