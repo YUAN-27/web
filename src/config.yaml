@@ -1,6 +1,6 @@
 site:
   name: YUAN の WEB
-  site: ''
+  site: 'https://yourdomain.com'
   base: '/'
   trailingSlash: false
 
